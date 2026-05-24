@@ -1,0 +1,19 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build/
+/app/build/
+/captures
+.externalNativeBuild
+.cxx
+*.apk
+*.ap_
+*.aab
+
+# Downloaded word list sources (bundled assets are committed)
+words_*_source.txt
+words_fr_big.txt
+wordle_en_5.txt
+en_50k.txt

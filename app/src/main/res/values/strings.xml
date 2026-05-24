@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Word Game</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="menu_settings">Settings</string>
+    <string name="settings_title">Settings</string>
+    <string name="language_label">Language</string>
+    <string name="language_english">English</string>
+    <string name="language_french">French</string>
+    <string name="show_first_letter_hint">Show first letter hint</string>
+    <string name="show_solution">Show solution</string>
+    <string name="hint_first_letter_format">First letter: %1$s</string>
+    <string name="hint_solution_format">Solution: %1$s</string>
+    <string name="unique_letters_only">Unique letters only (no repeats)</string>
+    <string name="word_length_label">Word length</string>
+    <string name="word_length_format">%1$d letters</string>
+    <string name="apply_and_new_game">Apply &amp; new game</string>
+    <string name="not_in_word_list">Not in word list</string>
+    <string name="you_won">You won!</string>
+    <string name="you_lost">Game over</string>
+    <string name="the_word_was">The word was: %1$s</string>
+    <string name="new_game">New game</string>
+    <string name="enter">ENTER</string>
+    <string name="backspace">⌫</string>
+</resources>

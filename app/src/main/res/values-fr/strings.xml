@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Jeu de mots</string>
+    <string name="navigation_drawer_open">Ouvrir le menu</string>
+    <string name="navigation_drawer_close">Fermer le menu</string>
+    <string name="menu_settings">Paramètres</string>
+    <string name="settings_title">Paramètres</string>
+    <string name="language_label">Langue</string>
+    <string name="language_english">Anglais</string>
+    <string name="language_french">Français</string>
+    <string name="show_first_letter_hint">Afficher la première lettre</string>
+    <string name="show_solution">Afficher la solution</string>
+    <string name="hint_first_letter_format">Première lettre : %1$s</string>
+    <string name="hint_solution_format">Solution : %1$s</string>
+    <string name="unique_letters_only">Lettres uniques seulement (sans répétition)</string>
+    <string name="word_length_label">Longueur du mot</string>
+    <string name="word_length_format">%1$d lettres</string>
+    <string name="apply_and_new_game">Appliquer et nouvelle partie</string>
+    <string name="not_in_word_list">Mot absent de la liste</string>
+    <string name="you_won">Vous avez gagné !</string>
+    <string name="you_lost">Partie terminée</string>
+    <string name="the_word_was">Le mot était : %1$s</string>
+    <string name="new_game">Nouvelle partie</string>
+    <string name="enter">ENTRÉE</string>
+    <string name="backspace">⌫</string>
+</resources>

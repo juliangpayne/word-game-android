@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="grid_border">#FF878787</color>
+    <color name="grid_empty">#FFFFFFFF</color>
+    <color name="keyboard_key">#FFD3D6DA</color>
+    <color name="keyboard_key_text">#FF000000</color>
+    <color name="letter_correct">#FF6AAA64</color>
+    <color name="letter_present">#FFC9B458</color>
+    <color name="letter_absent">#FF787C7E</color>
+    <color name="letter_hint">#FFB8C0E0</color>
+</resources>
