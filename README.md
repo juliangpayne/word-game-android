@@ -47,6 +47,12 @@ Counts (unique words, letters a–z only):
 
 To regenerate lists from sources, download the source `.txt` files to the project root and run the filter script documented in `scripts/filter_words.ps1`.
 
+## Word sources
+
+| File pattern | Source |
+|--------------|--------|
+| `Oxford 3000.txt` | [Oxford 3000](https://github.com/jnoodle/English-Vocabulary-Word-List/blob/master/Oxford%203000.txt) |
+
 ## Project structure
 
 - `app/src/main/java/com/wordgame/app/` — game logic and UI
