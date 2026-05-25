@@ -29,7 +29,7 @@ class WordRepository(private val context: Context) {
 
     fun pickRandomWord(language: GameLanguage, length: Int, uniqueLettersOnly: Boolean): String {
         val words = loadWords(language, length, uniqueLettersOnly)
-        require(words.isNotEmpty()) {
+        check(words.isNotEmpty()) {
             "No words available for ${language.code} length $length (uniqueLettersOnly=$uniqueLettersOnly)"
         }
         return words.random()

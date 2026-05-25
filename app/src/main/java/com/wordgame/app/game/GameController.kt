@@ -10,7 +10,7 @@ class GameController(
     private val showFirstLetterHint: Boolean,
     private val uniqueLettersOnly: Boolean
 ) {
-    private var state: GameState = newGame()
+    private lateinit var state: GameState
 
     fun getState(): GameState = state
 

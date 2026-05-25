@@ -19,49 +19,57 @@ class GameGridView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : GridLayout(context, attrs, defStyleAttr) {
 
-    private var wordLength: Int = 5
+    private var gridColumns: Int = 5
     private val cells = mutableListOf<TextView>()
 
     init {
-        columnCount = wordLength
         rowCount = WordEvaluator.MAX_ATTEMPTS
         useDefaultMargins = false
     }
 
     fun configure(wordLength: Int) {
-        if (this.wordLength == wordLength && cells.isNotEmpty()) return
-        this.wordLength = wordLength
-        columnCount = wordLength
-        rowCount = WordEvaluator.MAX_ATTEMPTS
+        val neededCells = WordEvaluator.MAX_ATTEMPTS * wordLength
+        if (gridColumns == wordLength && cells.size == neededCells) return
+
         removeAllViews()
         cells.clear()
+
+        gridColumns = wordLength
+        columnCount = wordLength
+        rowCount = WordEvaluator.MAX_ATTEMPTS
 
         val cellSize = resources.displayMetrics.density * 52f
         val margin = (resources.displayMetrics.density * 4).toInt()
 
-        repeat(WordEvaluator.MAX_ATTEMPTS * wordLength) {
-            val cell = TextView(context).apply {
-                gravity = Gravity.CENTER
-                setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f)
-                typeface = Typeface.DEFAULT_BOLD
-                background = ContextCompat.getDrawable(context, R.drawable.cell_border)
-                setTextColor(ContextCompat.getColor(context, R.color.black))
+        for (row in 0 until WordEvaluator.MAX_ATTEMPTS) {
+            for (col in 0 until wordLength) {
+                val cell = TextView(context).apply {
+                    gravity = Gravity.CENTER
+                    setTextSize(TypedValue.COMPLEX_UNIT_SP, 22f)
+                    typeface = Typeface.DEFAULT_BOLD
+                    background = ContextCompat.getDrawable(context, R.drawable.cell_border)
+                    setTextColor(ContextCompat.getColor(context, R.color.black))
+                }
+                val params = LayoutParams().apply {
+                    width = cellSize.toInt()
+                    height = cellSize.toInt()
+                    rowSpec = spec(row)
+                    columnSpec = spec(col)
+                    setMargins(margin, margin, margin, margin)
+                }
+                addView(cell, params)
+                cells.add(cell)
             }
-            val params = LayoutParams().apply {
-                width = cellSize.toInt()
-                height = cellSize.toInt()
-                setMargins(margin, margin, margin, margin)
-            }
-            addView(cell, params)
-            cells.add(cell)
         }
     }
 
     fun render(state: GameState) {
         configure(state.wordLength)
+        val columns = state.wordLength
         for (row in 0 until WordEvaluator.MAX_ATTEMPTS) {
-            for (col in 0 until state.wordLength) {
-                val index = row * state.wordLength + col
+            for (col in 0 until columns) {
+                val index = row * columns + col
+                if (index >= cells.size) continue
                 val cell = cells[index]
                 val letter: Char?
                 val result: LetterResult
@@ -69,8 +77,13 @@ class GameGridView @JvmOverloads constructor(
                 when {
                     row < state.guesses.size -> {
                         val guess = state.guesses[row]
-                        letter = guess[col]
-                        result = state.results[row][col]
+                        if (col >= guess.length) {
+                            letter = null
+                            result = LetterResult.EMPTY
+                        } else {
+                            letter = guess[col]
+                            result = state.results[row][col]
+                        }
                     }
                     row == state.currentRow && col < state.currentGuess.length -> {
                         letter = state.currentGuess[col]
